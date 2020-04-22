@@ -1,16 +1,39 @@
-<p>products works!</p>
+<div *ngIf="this.mainService.products" nz-row [nzGutter]="[30, 30]">
+  <div
+    class="product"
+    nz-col
+    nzXs="24"
+    nzSm="12"
+    nzMd="8"
+    nzLg="6"
+    nzXl="4"
+    *ngFor="let product of this.mainService.products?.productsTable"
+  >
+    <nz-card
+      [nzCover]="coverTemplate"
+      [nzActions]="[actionDetails, actionAddToCart]"
+    >
+      <nz-card-meta
+        nzTitle="{{ product.title }}"
+        [nzDescription]="descriptionTemplate"
+      ></nz-card-meta>
 
-<button
-  pButton
-  type="button"
-  label="back to landing"
-  class="ui-button-raised"
-  routerLink="/landing"
-></button>
-<button
-  pButton
-  type="button"
-  label="back to landing"
-  class="ui-button-raised"
-  routerLink="/product/1"
-></button>
+      <ng-template #descriptionTemplate>
+        <p>Price: {{ product.price }}</p>
+        <p>Category {{ product.category }}</p>
+      </ng-template>
+
+      <ng-template #coverTemplate>
+        <img alt="example" src="{{ product.thumbnail }}" />
+      </ng-template>
+
+      <ng-template #actionDetails>
+        <i nz-icon nzType="more" nzTheme="outline"></i>
+      </ng-template>
+
+      <ng-template #actionAddToCart>
+        <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+      </ng-template>
+    </nz-card>
+  </div>
+</div>
