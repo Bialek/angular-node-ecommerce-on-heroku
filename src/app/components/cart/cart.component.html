@@ -1,0 +1,51 @@
+<div class="cart">
+  <div class="cart__table-wrapper">
+    <nz-table #table [nzData]="this.mainService.cart" nzShowPagination="false">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Subtotal</th>
+          <th><i nz-icon nzType="delete" nzTheme="outline"></i></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of table.data">
+          <td>
+            {{ data.title }}
+          </td>
+          <td>{{ data.price }}</td>
+          <td>
+            <nz-input-number
+              [(ngModel)]="data.count"
+              [nzStep]="1"
+            ></nz-input-number>
+          </td>
+          <td>{{ data.count * data.price }}</td>
+
+          <td>
+            <a
+              nz-popconfirm
+              nzPopconfirmTitle="Sure to delete?"
+              (nzOnConfirm)="deleteProduct(data.id)"
+              >Delete</a
+            >
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+
+  <div class="cart__total-cost">
+    <div>
+      Total Cost: <b>{{ totalCost() }}$</b>
+    </div>
+
+    <div *ngIf="this.mainService.cart.length !== 0">
+      <button nz-button [nzType]="'primary'" routerLink="/payment">
+        Pay
+      </button>
+    </div>
+  </div>
+</div>

@@ -32,7 +32,12 @@
       </ng-template>
 
       <ng-template #actionAddToCart>
-        <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+        <i
+          nz-icon
+          nzType="shopping-cart"
+          nzTheme="outline"
+          (click)="addToCard(product)"
+        ></i>
       </ng-template>
     </nz-card>
   </div>
