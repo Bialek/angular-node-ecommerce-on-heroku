@@ -1,0 +1,62 @@
+<H3>Payment</H3>
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+  <nz-form-item>
+    <nz-form-control
+      [nzSm]="14"
+      [nzXs]="24"
+      nzErrorTip="The input is not valid E-mail!"
+    >
+      <nz-input-group nzPrefixIcon="mail">
+        <input
+          nz-input
+          formControlName="email"
+          id="email"
+          placeholder="E-mail"
+        />
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control
+      [nzSm]="14"
+      [nzXs]="24"
+      nzErrorTip="Please input your name!"
+    >
+      <nz-input-group nzPrefixIcon="user">
+        <input nz-input id="name" formControlName="name" placeholder="Name" />
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control
+      [nzSm]="14"
+      [nzXs]="24"
+      [nzValidateStatus]="validateForm.controls['phoneNumber']"
+      nzErrorTip="Please input your phone number!"
+    >
+      <nz-input-group nzPrefixIcon="phone">
+        <input
+          formControlName="phoneNumber"
+          id="'phoneNumber'"
+          nz-input
+          placeholder="Phone Number"
+        />
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item nz-row>
+    <nz-form-control [nzSpan]="14" nzErrorTip="Agreement must be accepted!">
+      <label nz-checkbox formControlName="agree">
+        <span>I have read the <a>agreement</a></span>
+      </label>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item nz-row>
+    <nz-form-control [nzSpan]="14">
+      <button nz-button nzType="primary">Process to Paypal</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>

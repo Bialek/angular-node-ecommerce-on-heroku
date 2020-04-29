@@ -1,0 +1,12 @@
+.cart {
+  display: grid;
+  grid-row-gap: 2.5rem;
+  &__table-wrapper {
+    overflow-x: auto;
+  }
+  &__total-cost {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
