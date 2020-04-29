@@ -4,3 +4,10 @@
   height: 100%;
   grid-template-rows: 1.6fr 1fr auto;
 }
+
+.products {
+  &__spinner {
+    display: flex;
+    justify-content: center;
+  }
+}

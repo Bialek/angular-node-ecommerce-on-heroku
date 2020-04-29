@@ -9,7 +9,7 @@ export interface RequestParams {
 }
 
 export interface ProductsResponse {
-  productsTable: Product[];
+  productsTable?: Product[];
 }
 
 export interface Product {

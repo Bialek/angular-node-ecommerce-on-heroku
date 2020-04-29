@@ -1,6 +1,10 @@
 <div class="cart">
   <div class="cart__table-wrapper">
-    <nz-table #table [nzData]="this.mainService.cart" nzShowPagination="false">
+    <nz-table
+      #table
+      [nzData]="this.mainService.cart"
+      [nzShowPagination]="this.mainService.cart.length > 10"
+    >
       <thead>
         <tr>
           <th>Title</th>

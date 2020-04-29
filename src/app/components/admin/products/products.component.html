@@ -1,0 +1,102 @@
+<div class="admin-products">
+  <div class="admin-products__panel">
+    <button nz-button [nzType]="'primary'" (click)="this.toggleModalVisible()">
+      Add new product
+    </button>
+  </div>
+  <div class="admin-products__table-wrapper">
+    <nz-table
+      #table
+      [nzData]="this.mainService.products?.productsTable"
+      [nzLoading]="
+        this.mainService.isProductsLoading ||
+        this.mainService.isProductRemoveLoading
+      "
+    >
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Title</th>
+          <th>Price</th>
+          <th>Category</th>
+          <th><i nz-icon nzType="delete" nzTheme="outline"></i></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of table.data">
+          <td>
+            <img alt="{{ data.title }}" src="{{ data.thumbnail }}" />
+          </td>
+          <td>
+            {{ data.title }}
+          </td>
+          <td>{{ data.price }}</td>
+          <td>{{ data.category }}</td>
+          <td>
+            <a
+              nz-popconfirm
+              nzPopconfirmTitle="Sure to delete?"
+              (nzOnConfirm)="this.mainService.removeProduct(data.id)"
+              >Delete</a
+            >
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</div>
+
+<nz-modal
+  [(nzVisible)]="isModalVisable"
+  nzTitle="Adding new product"
+  [nzOkLoading]="this.mainService.isProductAddLoading"
+  [nzOkDisabled]="this.mainService.isProductAddLoading"
+  [nzCancelDisabled]="this.mainService.isProductAddLoading"
+  (nzOnCancel)="this.toggleModalVisible()"
+  (nzOnOk)="this.handleConfirmAdd()"
+>
+  <form nz-form [formGroup]="addProductForm">
+    <nz-form-item>
+      <nz-form-control nzErrorTip="Image is requied!">
+        <nz-input-group nzPrefixIcon="file-image">
+          <input
+            nz-input
+            formControlName="thumbnail"
+            placeholder="Image link"
+          />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-control nzErrorTip="Please input product title!">
+        <nz-input-group nzPrefixIcon="edit">
+          <input nz-input formControlName="title" placeholder="Title" />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-control nzErrorTip="Please input product price!">
+        <nz-input-number
+          formControlName="price"
+          [nzPlaceHolder]="'Price'"
+          [nzMin]="1"
+          [nzStep]="0.01"
+          class="admin-products__input-number"
+        ></nz-input-number>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-control nzErrorTip="Please select product category!">
+        <nz-select formControlName="category" nzPlaceHolder="Select category">
+          <nz-option nzLabel="FPS" nzValue="FPS"></nz-option>
+          <nz-option nzLabel="RPG" nzValue="RPG"></nz-option>
+          <nz-option nzLabel="RTS" nzValue="RTS"></nz-option>
+          <nz-option nzLabel="Hack'n slash" nzValue="Hack'n slash"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</nz-modal>

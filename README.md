@@ -1,4 +1,6 @@
-# Myshop Demo: [https://bialek.github.io/e-commerce_rafal_bialek_25926/](https://bialek.github.io/e-commerce_rafal_bialek_25926/)
+# Myshop
+
+### Demo: [Github Page](https://bialek.github.io/e-commerce_rafal_bialek_25926/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
 

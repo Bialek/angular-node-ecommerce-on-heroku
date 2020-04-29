@@ -10,9 +10,7 @@ import { Product } from 'src/app/types';
 export class ProductsComponent implements OnInit {
   constructor(public mainService: MainService) {}
 
-  ngOnInit(): void {
-    this.mainService.getProducts(this.mainService.productsRequest);
-  }
+  ngOnInit(): void {}
 
   addToCard(product: Product) {
     const productIsInCart = this.mainService.cart.find(

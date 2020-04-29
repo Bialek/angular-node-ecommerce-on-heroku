@@ -1,4 +1,4 @@
-<div *ngIf="this.mainService.products" nz-row [nzGutter]="[30, 30]">
+<div *ngIf="!this.mainService.isProductsLoading" nz-row [nzGutter]="[30, 30]">
   <div
     class="product"
     nz-col
@@ -24,7 +24,7 @@
       </ng-template>
 
       <ng-template #coverTemplate>
-        <img alt="example" src="{{ product.thumbnail }}" />
+        <img alt="{{ product.title }}" src="{{ product.thumbnail }}" />
       </ng-template>
 
       <ng-template #actionDetails>
@@ -41,4 +41,8 @@
       </ng-template>
     </nz-card>
   </div>
+</div>
+
+<div *ngIf="this.mainService.isProductsLoading" class="products__spinner">
+  <nz-spin nzSimple [nzSize]="'large'"></nz-spin>
 </div>

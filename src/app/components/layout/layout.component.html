@@ -1,32 +1,113 @@
 <nz-layout class="layout">
   <nz-sider nzCollapsible nzBreakpoint="md" [nzCollapsedWidth]="0">
-    <div class="logo"><img src="assets/logo.png" alt="Logo" /></div>
-    <ul nz-menu nzMode="inline" nzTheme="dark">
-      <li
-        nz-menu-item
-        routerLink="/home"
-        routerLinkActive="ant-menu-item-selected"
-      >
-        <i nz-icon nzType="home"></i>
-        <span>Home</span>
-      </li>
-      <li
-        nz-menu-item
-        routerLink="/products"
-        routerLinkActive="ant-menu-item-selected"
-      >
-        <i nz-icon nzType="appstore-add"></i>
-        <span>Products</span>
-      </li>
-      <li
-        nz-menu-item
-        routerLink="/cart"
-        routerLinkActive="ant-menu-item-selected"
-      >
-        <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
-        <span>Card</span>
-      </li>
-    </ul>
+    <div class="layout__sticky-menu">
+      <div class="logo"><img src="assets/logo.png" alt="Logo" /></div>
+      <ul *ngIf="this.isAdmin" nz-menu nzMode="inline" nzTheme="dark">
+        <li
+          nz-menu-item
+          routerLink="admin/dashboard"
+          routerLinkActive="ant-menu-item-selected"
+        >
+          <i nz-icon nzType="home"></i>
+          <span>Dashboard</span>
+        </li>
+        <li
+          nz-menu-item
+          routerLink="admin/products"
+          routerLinkActive="ant-menu-item-selected"
+        >
+          <i nz-icon nzType="appstore-add"></i>
+          <span>Products</span>
+        </li>
+        <li
+          nz-menu-item
+          routerLink="admin/orders"
+          routerLinkActive="ant-menu-item-selected"
+        >
+          <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+          <span>Orders</span>
+        </li>
+        <li
+          nz-menu-item
+          routerLink="admin/users"
+          routerLinkActive="ant-menu-item-selected"
+        >
+          <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+          <span>Users</span>
+        </li>
+        <li
+          nz-menu-item
+          routerLink="admin/newsletter"
+          routerLinkActive="ant-menu-item-selected"
+        >
+          <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+          <span>Newsletter</span>
+        </li>
+        <li
+          nz-menu-item
+          routerLink="admin/logs"
+          routerLinkActive="ant-menu-item-selected"
+        >
+          <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+          <span>Logs</span>
+        </li>
+        <li
+          nz-menu-item
+          routerLink="admin/settings"
+          routerLinkActive="ant-menu-item-selected"
+        >
+          <i nz-icon nzType="control" nzTheme="outline"></i>
+          <span>Settings</span>
+        </li>
+      </ul>
+      <ul *ngIf="this.isAdmin" nz-menu nzMode="inline" nzTheme="dark">
+        <li
+          nz-menu-item
+          routerLink="/home"
+          routerLinkActive="ant-menu-item-selected"
+        >
+          <i nz-icon nzType="home"></i>
+          <span>Shop</span>
+        </li>
+      </ul>
+
+      <ul *ngIf="!this.isAdmin" nz-menu nzMode="inline" nzTheme="dark">
+        <li
+          nz-menu-item
+          routerLink="/home"
+          routerLinkActive="ant-menu-item-selected"
+        >
+          <i nz-icon nzType="home"></i>
+          <span>Home</span>
+        </li>
+        <li
+          nz-menu-item
+          routerLink="/products"
+          routerLinkActive="ant-menu-item-selected"
+        >
+          <i nz-icon nzType="appstore-add"></i>
+          <span>Products</span>
+        </li>
+        <li
+          nz-menu-item
+          routerLink="/cart"
+          routerLinkActive="ant-menu-item-selected"
+        >
+          <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+          <span>Card</span>
+        </li>
+      </ul>
+      <ul *ngIf="!this.isAdmin" nz-menu nzMode="inline" nzTheme="dark">
+        <li
+          nz-menu-item
+          routerLink="/admin/dashboard"
+          routerLinkActive="ant-menu-item-selected"
+        >
+          <i nz-icon nzType="control" nzTheme="outline"></i>
+          <span>Admin</span>
+        </li>
+      </ul>
+    </div>
   </nz-sider>
   <nz-layout>
     <nz-content>

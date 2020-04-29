@@ -1,5 +1,12 @@
 .layout {
   min-height: 100vh;
+  &__sticky-menu {
+    position: sticky;
+    top: 16px;
+    height: calc(100vh - 16px);
+    display: grid;
+    grid-template-rows: 2fr 7fr 1fr;
+  }
 }
 .logo {
   margin: 16px;
@@ -8,7 +15,7 @@
     width: 100%;
   }
 }
-.ant-menu-item-selected{
+.ant-menu-item-selected {
   outline: none;
 }
 nz-header {

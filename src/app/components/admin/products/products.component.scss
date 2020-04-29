@@ -1,0 +1,16 @@
+.admin-products {
+  &__panel {
+    margin-bottom: 20px;
+  }
+  &__table-wrapper {
+    overflow-x: auto;
+    img {
+      max-height: 100px;
+      max-width: 100px;
+      object-fit: contain;
+    }
+  }
+  &__input-number {
+    width: 100%;
+  }
+}

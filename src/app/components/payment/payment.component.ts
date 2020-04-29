@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-  FormControl,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MainService } from 'src/app/services/main.service';
 
 @Component({
@@ -14,15 +9,6 @@ import { MainService } from 'src/app/services/main.service';
 })
 export class PaymentComponent implements OnInit {
   validateForm: FormGroup;
-
-  confirmationValidator = (control: FormControl): { [s: string]: boolean } => {
-    if (!control.value) {
-      return { required: true };
-    } else if (control.value !== this.validateForm.controls.password.value) {
-      return { confirm: true, error: true };
-    }
-    return {};
-  };
 
   constructor(
     private formBuilder: FormBuilder,
