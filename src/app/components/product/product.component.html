@@ -1,1 +1,25 @@
-<p>product works!</p>
+<div *ngIf="!this.mainService.isProductsLoading">
+  <div class="product">
+    {{ this.getProduct() }}
+
+    <div>
+      <img
+        alt="{{ this.selectedProduct.title }}"
+        src="{{ this.selectedProduct.thumbnail }}"
+      />
+    </div>
+    <div class="product__info">
+      <h3>{{ this.selectedProduct.title }}</h3>
+      <p>Price: {{ this.selectedProduct.price }}</p>
+      <p>Category: {{ this.selectedProduct.category }}</p>
+      <button
+        nz-button
+        [nzType]="'primary'"
+        (click)="this.mainService.addToCard(this.selectedProduct)"
+      >
+        <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+        Add to cart
+      </button>
+    </div>
+  </div>
+</div>

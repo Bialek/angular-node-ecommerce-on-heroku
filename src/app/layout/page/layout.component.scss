@@ -1,0 +1,35 @@
+.page-layout {
+  min-height: 100vh;
+  &__sticky-menu {
+    position: sticky;
+    top: 16px;
+    height: calc(100vh - 16px);
+    display: grid;
+    grid-template-rows: 2fr 7fr 1fr;
+  }
+}
+.logo {
+  margin: 16px;
+  cursor: pointer;
+  img {
+    width: 100%;
+  }
+}
+.ant-menu-item-selected {
+  outline: none;
+}
+nz-header {
+  background: #fff;
+  padding: 0;
+}
+nz-content {
+  margin: 24px 16px 0;
+}
+.inner-content {
+  padding: 24px;
+  background: #fff;
+  min-height: 360px;
+}
+nz-footer {
+  text-align: center;
+}

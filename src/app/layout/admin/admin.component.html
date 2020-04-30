@@ -1,14 +1,14 @@
-<nz-layout class="layout">
+<nz-layout class="admin-layout">
   <nz-sider nzCollapsible nzBreakpoint="md" [nzCollapsedWidth]="0">
-    <div class="layout__sticky-menu">
+    <div class="admin-layout__sticky-menu">
       <div class="logo"><img src="assets/logo.png" alt="Logo" /></div>
-      <ul *ngIf="this.isAdmin" nz-menu nzMode="inline" nzTheme="dark">
+      <ul nz-menu nzMode="inline">
         <li
           nz-menu-item
           routerLink="admin/dashboard"
           routerLinkActive="ant-menu-item-selected"
         >
-          <i nz-icon nzType="home"></i>
+          <i nz-icon nzType="pie-chart" nzTheme="outline"></i>
           <span>Dashboard</span>
         </li>
         <li
@@ -60,7 +60,7 @@
           <span>Settings</span>
         </li>
       </ul>
-      <ul *ngIf="this.isAdmin" nz-menu nzMode="inline" nzTheme="dark">
+      <ul nz-menu nzMode="inline">
         <li
           nz-menu-item
           routerLink="/home"
@@ -68,43 +68,6 @@
         >
           <i nz-icon nzType="home"></i>
           <span>Shop</span>
-        </li>
-      </ul>
-
-      <ul *ngIf="!this.isAdmin" nz-menu nzMode="inline" nzTheme="dark">
-        <li
-          nz-menu-item
-          routerLink="/home"
-          routerLinkActive="ant-menu-item-selected"
-        >
-          <i nz-icon nzType="home"></i>
-          <span>Home</span>
-        </li>
-        <li
-          nz-menu-item
-          routerLink="/products"
-          routerLinkActive="ant-menu-item-selected"
-        >
-          <i nz-icon nzType="appstore-add"></i>
-          <span>Products</span>
-        </li>
-        <li
-          nz-menu-item
-          routerLink="/cart"
-          routerLinkActive="ant-menu-item-selected"
-        >
-          <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
-          <span>Card</span>
-        </li>
-      </ul>
-      <ul *ngIf="!this.isAdmin" nz-menu nzMode="inline" nzTheme="dark">
-        <li
-          nz-menu-item
-          routerLink="/admin/dashboard"
-          routerLinkActive="ant-menu-item-selected"
-        >
-          <i nz-icon nzType="control" nzTheme="outline"></i>
-          <span>Admin</span>
         </li>
       </ul>
     </div>
@@ -115,6 +78,6 @@
         <router-outlet></router-outlet>
       </div>
     </nz-content>
-    <nz-footer>Ant Design ©2020 Implement By Angular</nz-footer>
+    <nz-footer>Goat Game ©2020 Implement By Rafał Białek</nz-footer>
   </nz-layout>
 </nz-layout>

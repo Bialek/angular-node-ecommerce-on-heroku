@@ -1,1 +1,8 @@
-<app-layout></app-layout>
+<div *ngIf="this.isAppReady()">
+  <app-page-layout *ngIf="!this.isAdmin && !this.isHome"></app-page-layout>
+  <app-home *ngIf="this.isHome"></app-home>
+  <app-admin-layout *ngIf="this.isAdmin"></app-admin-layout>
+</div>
+<div *ngIf="!this.isAppReady()" class="loader">
+  <nz-spin nzSimple [nzSize]="'large'"></nz-spin>
+</div>

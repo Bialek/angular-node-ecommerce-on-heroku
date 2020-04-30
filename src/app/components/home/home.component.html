@@ -1,1 +1,122 @@
-<p>home works!</p>
+<nz-layout>
+  <nz-header>
+    <div class="logo"><img src="assets/logo.png" alt="Logo" /></div>
+
+    <ul nz-menu nzTheme="dark" nzMode="horizontal">
+      <li
+        nz-menu-item
+        routerLink="/home"
+        routerLinkActive="ant-menu-item-selected"
+      >
+        <i nz-icon nzType="home"></i>
+        <span class="nav__text">Home</span>
+      </li>
+      <li
+        nz-menu-item
+        routerLink="/products"
+        routerLinkActive="ant-menu-item-selected"
+      >
+        <i nz-icon nzType="appstore-add"></i>
+        <span class="nav__text">Products</span>
+      </li>
+      <li
+        nz-menu-item
+        routerLink="/cart"
+        routerLinkActive="ant-menu-item-selected"
+      >
+        <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+        <span class="nav__text">Card</span>
+      </li>
+    </ul>
+  </nz-header>
+  <nz-content>
+    <div class="hero">
+      <nz-carousel nzAutoPlay [nzEffect]="'fade'">
+        <div nz-carousel-content *ngFor="let slide of galleryImages">
+          <div class="hero__container">
+            <div class="hero__text-wrapper">
+              <h2>{{ slide.title }}</h2>
+              <p>{{ slide.description }}</p>
+              <button
+                nz-button
+                [nzType]="'primary'"
+                routerLink="{{ slide.routeTo }}"
+              >
+                {{ slide.buttonText }}
+              </button>
+            </div>
+            <div class="hero__img-wrapper">
+              <img src="{{ slide.img }}" alt="{{ slide.title }}" />
+            </div>
+          </div>
+        </div>
+      </nz-carousel>
+    </div>
+
+    <div *ngIf="!this.mainService.isProductsLoading" class="bestseller">
+      <h2 class="bestseller__header">Bestsellers</h2>
+
+      <div class="bestseller__wrapper">
+        <div
+          *ngFor="
+            let product of this.mainService.products?.productsTable.slice(0, 3)
+          "
+        >
+          <nz-card
+            class="bestseller__cart"
+            nzHoverable
+            [nzCover]="coverTemplate"
+          >
+            <nz-card-meta
+              nzTitle="{{ product.title }}"
+              [nzDescription]="descriptionTemplate"
+              routerLink="/product/{{ product.id }}"
+            ></nz-card-meta>
+
+            <ng-template #descriptionTemplate>
+              <p>Price: {{ product.price }}</p>
+              <p>Category {{ product.category }}</p>
+            </ng-template>
+
+            <ng-template #coverTemplate>
+              <img
+                alt="{{ product.title }}"
+                src="{{ product.thumbnail }}"
+                routerLink="/product/{{ product.id }}"
+              />
+            </ng-template>
+          </nz-card>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact">
+      <div class="contact__info">
+        <h3>Contact</h3>
+        <div>
+          <i nz-icon nzType="mail" nzTheme="outline"></i>
+          contact@contact.io
+        </div>
+        <div>
+          <i nz-icon nzType="phone" nzTheme="outline"></i>
+          +12 23 344 544
+        </div>
+        <div>
+          <i nz-icon nzType="home" nzTheme="outline"></i>
+          California
+        </div>
+      </div>
+      <div class="contact__map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d403373.9654837034!2d-122.88844216859738!3d37.82847815442443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f76c6c14b0f3b%3A0xacde8ba186a0593e!2sKalifornia%2C%20Stany%20Zjednoczone!5e0!3m2!1spl!2spl!4v1588209531660!5m2!1spl!2spl"
+          frameborder="0"
+          style="border: 0;"
+          allowfullscreen=""
+          aria-hidden="false"
+          tabindex="0"
+        ></iframe>
+      </div>
+    </div>
+  </nz-content>
+  <nz-footer>Goat Game ©2020 Implement By Rafał Białek</nz-footer>
+</nz-layout>

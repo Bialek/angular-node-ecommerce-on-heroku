@@ -1,0 +1,7 @@
+.product {
+  display: grid;
+  grid-template-columns: 0.6fr 1fr;
+  &__info {
+    margin: 15%;
+  }
+}

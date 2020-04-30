@@ -11,3 +11,16 @@
     justify-content: center;
   }
 }
+
+.search-input {
+  min-height: 60px;
+  margin-bottom: 40px;
+  .ant-input-affix-wrapper {
+    min-height: 60px;
+    font-size: 30px;
+  }
+  input {
+    padding-left: 20px;
+    font-size: 20px;
+  }
+}

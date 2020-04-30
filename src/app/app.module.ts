@@ -24,6 +24,7 @@ import {
   NzCheckboxModule,
   NzModalModule,
   NzSpinModule,
+  NzCarouselModule,
 } from 'ng-zorro-antd';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
@@ -32,7 +33,8 @@ import { AppComponent } from './app.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ProductComponent } from './components/product/product.component';
 import { HomeComponent } from './components/home/home.component';
-import { LayoutComponent } from './components/layout/layout.component';
+import { PageLayoutComponent } from './layout/page/layout.component';
+import { AdminLayoutComponent } from './layout/admin/admin.component';
 import { CartComponent } from './components/cart/cart.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { AdminDashboardComponent } from './components/admin/dashboard/dashboard.component';
@@ -56,7 +58,7 @@ const appRouters: Routes = [
     path: 'products',
     component: ProductsComponent,
   },
-  { path: 'product/:id', component: ProductComponent },
+  { path: 'product/:id', component: ProductComponent, pathMatch: 'full' },
   { path: 'admin/dashboard', component: AdminDashboardComponent },
   { path: 'admin/products', component: AdminProductsComponent },
 ];
@@ -68,11 +70,12 @@ const appRouters: Routes = [
     ProductsComponent,
     ProductComponent,
     HomeComponent,
-    LayoutComponent,
+    PageLayoutComponent,
     CartComponent,
     PaymentComponent,
     AdminDashboardComponent,
     AdminProductsComponent,
+    AdminLayoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -97,6 +100,7 @@ const appRouters: Routes = [
     NzCheckboxModule,
     NzModalModule,
     NzSpinModule,
+    NzCarouselModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],

@@ -1,3 +1,13 @@
+<div class="search-input">
+  <nz-input-group nzPrefixIcon="search">
+    <input
+      nz-input
+      placeholder="Search by title, price, category"
+      (input)="this.onSearchChange($event.target.value)"
+    />
+  </nz-input-group>
+</div>
+
 <div *ngIf="!this.mainService.isProductsLoading" nz-row [nzGutter]="[30, 30]">
   <div
     class="product"
@@ -7,7 +17,7 @@
     nzMd="8"
     nzLg="6"
     nzXl="4"
-    *ngFor="let product of this.mainService.products?.productsTable"
+    *ngFor="let product of this.productsCollection"
   >
     <nz-card
       [nzCover]="coverTemplate"
@@ -28,7 +38,12 @@
       </ng-template>
 
       <ng-template #actionDetails>
-        <i nz-icon nzType="more" nzTheme="outline"></i>
+        <i
+          nz-icon
+          nzType="more"
+          nzTheme="outline"
+          routerLink="/product/{{ product.id }}"
+        ></i>
       </ng-template>
 
       <ng-template #actionAddToCart>
@@ -36,7 +51,7 @@
           nz-icon
           nzType="shopping-cart"
           nzTheme="outline"
-          (click)="addToCard(product)"
+          (click)="this.mainService.addToCard(product)"
         ></i>
       </ng-template>
     </nz-card>
