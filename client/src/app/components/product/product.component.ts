@@ -20,9 +20,7 @@ export class ProductComponent implements OnInit {
 
   getProduct() {
     if (this.selectedProduct === undefined) {
-      console.log('work');
-
-      this.selectedProduct = this.mainService.products.productsTable.find(
+      this.selectedProduct = this.mainService.products.find(
         (product) => product.id === this.id
       );
     }

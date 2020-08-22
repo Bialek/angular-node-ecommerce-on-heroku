@@ -1,6 +1,6 @@
 # Myshop
 
-### Demo: [Github Page](https://bialek.github.io/e-commerce_rafal_bialek_25926/)
+### Demo: [https://angular-node-master-eq7ojrigc2.herokuapp.com/](https://angular-node-master-eq7ojrigc2.herokuapp.com/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
 

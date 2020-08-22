@@ -7,7 +7,7 @@
   <div class="admin-products__table-wrapper">
     <nz-table
       #table
-      [nzData]="this.mainService.products?.productsTable"
+      [nzData]="this.mainService.products"
       [nzLoading]="
         this.mainService.isProductsLoading ||
         this.mainService.isProductRemoveLoading

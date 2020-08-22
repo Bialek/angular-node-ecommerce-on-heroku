@@ -1,0 +1,32 @@
+{
+  "products": [
+    {
+      "title": "test",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR9nqcgkemcgIYyiCrSqnW3oyNr_ppYngR29w&usqp=CAU",
+      "category": "Lego",
+      "price": "20",
+      "id": 1
+    },
+    {
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRqve4I7skhNB7L7frgvT9BSDCJpkGyxaVn9w&usqp=CAU",
+      "title": "Jumanji",
+      "price": 200,
+      "category": "FPS",
+      "id": 2
+    },
+    {
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRqve4I7skhNB7L7frgvT9BSDCJpkGyxaVn9w&usqp=CAU",
+      "title": "Jumanji",
+      "price": 200,
+      "category": "FPS",
+      "id": 3
+    },
+    {
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRqve4I7skhNB7L7frgvT9BSDCJpkGyxaVn9w&usqp=CAU",
+      "title": "Jumanji",
+      "price": 200,
+      "category": "FPS",
+      "id": 4
+    }
+  ]
+}

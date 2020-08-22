@@ -12,12 +12,15 @@ export interface ProductsResponse {
   productsTable?: Product[];
 }
 
-export interface Product {
+export interface ProductPayload {
   id: string;
   title: string;
   thumbnail: string;
   category: string;
   price: string;
+}
+
+export interface Product extends ProductPayload {
   count: number;
 }
 

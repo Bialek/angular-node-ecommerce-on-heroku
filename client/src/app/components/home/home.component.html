@@ -57,11 +57,7 @@
       <h2 class="bestseller__header">Bestsellers</h2>
 
       <div class="bestseller__wrapper">
-        <div
-          *ngFor="
-            let product of this.mainService.products?.productsTable.slice(0, 3)
-          "
-        >
+        <div *ngFor="let product of this.mainService.products.slice(0, 3)">
           <nz-card
             class="bestseller__cart"
             nzHoverable

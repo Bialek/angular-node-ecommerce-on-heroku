@@ -9,7 +9,7 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit {
-  productsCollection: Product[] = this.mainService.products?.productsTable;
+  productsCollection: Product[] = this.mainService.products;
   searchChangeObserver;
 
   constructor(public mainService: MainService) {}
@@ -25,9 +25,9 @@ export class ProductsComponent implements OnInit {
         .pipe(distinctUntilChanged())
         .subscribe((value) => {
           if (value === '') {
-            this.productsCollection = this.mainService.products.productsTable;
+            this.productsCollection = this.mainService.products;
           } else {
-            this.productsCollection = this.mainService.products.productsTable.filter(
+            this.productsCollection = this.mainService.products.filter(
               (product: Product) =>
                 product.title.toLowerCase().indexOf(value.toLowerCase()) !==
                   -1 ||
