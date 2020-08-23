@@ -46,7 +46,7 @@ const appRouters: Routes = [
   { path: 'home', component: HomeComponent },
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: 'home',
     pathMatch: 'full',
   },
   {
@@ -61,6 +61,7 @@ const appRouters: Routes = [
   { path: 'product/:id', component: ProductComponent, pathMatch: 'full' },
   { path: 'admin/dashboard', component: AdminDashboardComponent },
   { path: 'admin/products', component: AdminProductsComponent },
+  { path: '**', redirectTo: 'home' },
 ];
 
 @NgModule({
@@ -79,7 +80,7 @@ const appRouters: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRouters),
+    RouterModule.forRoot(appRouters, { useHash: true }),
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
