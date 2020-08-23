@@ -25,9 +25,9 @@ export class MainService {
   isProductAddLoading: boolean = false;
   isProductRemoveLoading: boolean = false;
 
-  private _apiPathGetProducts = 'http://localhost:5000/products';
-  private _apiPathAddProduct = 'http://localhost:5000/add-product';
-  private _apiPathRemoveProduct = 'http://localhost:5000/remove-product';
+  private _apiPathGetProducts = 'https://localhost:5000/products';
+  private _apiPathAddProduct = 'https://localhost:5000/add-product';
+  private _apiPathRemoveProduct = 'https://localhost:5000/remove-product';
 
   getProducts(): void {
     this.http
